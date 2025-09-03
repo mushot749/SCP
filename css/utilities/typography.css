@@ -1,0 +1,109 @@
+/* Типографика */
+.system-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px;
+    background: linear-gradient(135deg, rgba(123, 75, 255, 0.1) 0%, rgba(76, 201, 240, 0.1) 100%);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--accent-secondary);
+    max-width: 1160px;
+    margin: 0 auto 30px auto;
+    width: calc(100% - 40px);
+}
+
+.system-title h1 {
+    font-size: 28px; /* было 24px */
+    letter-spacing: 2px;
+    margin: 0;
+    color: var(--accent-primary);
+}
+
+.subtitle {
+    font-size: 14px; /* было 12px */
+    opacity: 0.7;
+    margin-top: 4px;
+    color: var(--ice-blue);
+}
+
+.status-alert {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.status-panel {
+    display: flex;
+    gap: 15px;
+    margin-top: 8px;
+}
+
+.status-item {
+    font-size: 14px; /* было 12px */
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid var(--border-dark);
+}
+
+.status-label {
+    opacity: 0.8;
+    margin-right: 5px;
+    color: var(--ice-blue);
+}
+
+.status-value {
+    color: var(--accent-primary);
+    font-weight: bold;
+}
+
+.security-system {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.anomaly-description {
+    margin: 40px 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    position: relative;
+    overflow: visible;
+    max-width: 1400px;
+    margin: 40px auto;
+    width: calc(100% - 60px);
+}
+
+/* Стили для контейнера с сюжетом */
+.plot-container {
+    font-family: 'Courier New', 'Source Code Pro', monospace;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ice-blue);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-dark);
+    margin: 20px 0;
+}
+
+.plot-description p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.plot-footnote {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-dark);
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.footnote-icon {
+    margin-right: 8px;
+    color: var(--accent-primary);
+}

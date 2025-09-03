@@ -1,0 +1,98 @@
+/* Система оповещений */
+.containment-breach-alert {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    background: rgba(153, 0, 0, 0.3);
+    border-left: 3px solid var(--error-color);
+    border-radius: var(--border-radius);
+}
+
+.alert-icon, .warning-icon {
+    font-size: 18px;
+    animation: pulse 2s infinite;
+}
+
+.alert-icon {
+    color: var(--error-color);
+}
+
+.warning-icon {
+    color: var(--accent-primary);
+    font-weight: bold;
+}
+
+.alert-text {
+    color: var(--error-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.warning-text {
+    color: var(--text-color);
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: 0.9;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.rating-warning {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(153, 0, 0, 0.1);
+    border: 1px solid var(--error-color);
+    border-radius: var(--border-radius);
+}
+
+.warning-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: var(--border-radius);
+    animation: warningPulse 3s infinite alternate;
+    transition: all 0.3s ease;
+}
+
+.warning-item:hover {
+    border-color: var(--accent-primary);
+    background: rgba(76, 201, 240, 0.1);
+}
+
+.warning-item:nth-child(1) .warning-icon {
+    color: var(--error-color);
+}
+
+.warning-item:nth-child(2) .warning-icon {
+    color: var(--warning-color);
+}
+
+.scp-alert {
+    padding: 10px 15px;
+    background: linear-gradient(135deg, rgba(76, 201, 240, 0.1) 0%, rgba(0, 224, 199, 0.1) 100%);
+    border-left: 3px solid var(--accent-primary);
+    border-radius: var(--border-radius);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 1160px;
+    margin: 0 auto 30px auto;
+    width: calc(100% - 40px);
+}
+
+.reality-warning {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(76, 201, 240, 0.1);
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--border-radius);
+    margin-top: 25px;
+}
