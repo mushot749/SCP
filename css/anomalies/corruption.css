@@ -1,0 +1,71 @@
+/* Эффекты коррупции и искажения */
+.data-corruption {
+    position: relative;
+    overflow: hidden;
+}
+
+.data-corruption::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 0, 0, 0.1),
+        transparent
+    );
+    animation: corruption-sweep 3s infinite linear;
+}
+
+@keyframes corruption-sweep {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Искажение пикселей */
+.pixel-distort {
+    filter: contrast(1.2) brightness(0.9);
+    transform: translateZ(0);
+}
+
+.pixel-distort::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0icmdiYSgwLDAsMCwwLjEpIi8+PC9zdmc+');
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    opacity: 0.3;
+}
+
+/* Эффект статического шума */
+.static-noise {
+    position: relative;
+}
+
+.static-noise::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 50% 50%, transparent, rgba(0, 0, 0, 0.9)),
+        url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDAgTCA0MCAwIDQwIDQwIDAgNDAgMCAwIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiIGZpbGw9Im5vbmUiLz48L3N2Zz4=');
+    background-blend-mode: overlay;
+    pointer-events: none;
+    animation: static-flicker 0.2s infinite;
+}
+
+@keyframes static-flicker {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.2; }
+    100% { opacity: 0.1; }
+}

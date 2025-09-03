@@ -1,0 +1,32 @@
+/* Терминал и консоль */
+.log-terminal {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--accent-primary);
+    height: 148px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.terminal-header {
+    padding: 5px 10px;
+    background-color: var(--accent-primary);
+    color: #000;
+    font-size: 11px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+.terminal-content {
+    padding: 8px;
+    font-size: 11px;
+    line-height: 1.4;
+    overflow-y: auto;
+    flex-grow: 1;
+    max-height: calc(148px - 24px);
+    font-family: 'Share Tech Mono', monospace;
+}

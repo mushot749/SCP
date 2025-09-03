@@ -1,0 +1,21 @@
+/* Стили подвала */
+.scp-footer {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 20px;
+    border-top: 1px solid var(--border-dark);
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+.foundation-info, .system-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

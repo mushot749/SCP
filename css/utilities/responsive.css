@@ -1,0 +1,137 @@
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .scan-line {
+        animation: none;
+        background-size: 100% 8px;
+        opacity: 0.2;
+    }
+
+    .glitch-text::before,
+    .glitch-text::after {
+        animation: none;
+    }
+
+    .camera-status::before {
+        animation: none;
+        opacity: 0.8;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .system-header,
+    .scp-alert,
+    .camera-grid,
+    .control-panel {
+        max-width: 1000px;
+        width: calc(100% - 30px);
+    }
+    
+    .anomaly-description {
+        max-width: 1200px;
+        width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .camera-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 768px) {
+    .system-header,
+    .scp-alert,
+    .camera-grid,
+    .control-panel,
+    .anomaly-description {
+        max-width: 100%;
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    .system-header,
+    .scp-alert,
+    .camera-grid {
+        margin-bottom: 20px;
+    }
+    
+    .anomaly-description {
+        margin: 20px auto;
+    }
+    
+    .scp-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .scp-header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .system-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .status-panel {
+        flex-wrap: wrap;
+    }
+    
+    .control-panel {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .data-grid,
+    .warning-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .trigger-tags {
+        justify-content: center;
+    }
+    
+    .reality-warning {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .camera-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .scp-main {
+        padding: 10px;
+    }
+}
+
+/* Grid size controls for different screen sizes */
+.camera-grid.two-per-row {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.camera-grid.single-column {
+    grid-template-columns: 1fr;
+}
+
+/* Fullscreen responsive behavior */
+.camera-feed.fullscreen .camera-content {
+    height: calc(100% - 60px);
+}
+
+@media (max-width: 768px) {
+    .camera-feed.fullscreen .camera-content {
+        height: calc(100% - 50px);
+    }
+}
