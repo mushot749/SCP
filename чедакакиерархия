@@ -39,8 +39,8 @@ project/
 │    ├── modes/                # Специальные режимы
 │    │   └── lightweight-mode.css # Облегченный режим
 │    └── anomalies/            # Эффекты аномалий
-│    ├── zalgo-effects.css # Эффекты Zalgo текста
-│    ├── corruption.css    # Эффекты коррупции и искажения
-│    ├── emergency-mode.css   # Аварийный режим
-│    ├── reality-glitch.css # Глитчи реальности
-│    └── anomaly-effects.css # Основные эффекты аномалий
+│       ├── zalgo-effects.css # Эффекты Zalgo текста
+│       ├── corruption.css    # Эффекты коррупции и искажения
+│       ├── emergency-mode.css   # Аварийный режим
+│       ├── reality-glitch.css # Глитчи реальности
+│       └── anomaly-effects.css # Основные эффекты аномалий
