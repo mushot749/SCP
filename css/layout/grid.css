@@ -40,8 +40,8 @@
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 15px;
-    margin-top: 10px;
     max-width: 1160px;
-    margin: 0 auto;
+    margin: 10px auto 0;
     width: calc(100% - 40px);
+
 }
