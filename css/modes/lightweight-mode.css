@@ -1,0 +1,162 @@
+/* Lightweight Mode Styles */
+body.lightweight-mode {
+    --main-bg: #2a2f3b;
+    --text-primary: #e8eaed;
+    --text-secondary: #9aa0a6;
+    --accent-color: #4285f4;
+    --accent-secondary: #8ab4f8;
+    --danger-color: #ea4335;
+    --warning-color: #fbbc04;
+    --success-color: #34a853;
+    --border-color: #5f6368;
+    --terminal-bg: #202124;
+    --camera-bg: #1e222a;
+    --header-bg: #1a1d24;
+    --footer-bg: #1a1d24;
+    --control-bg: #2c303a;
+    --scan-line: rgba(66, 133, 244, 0.15);
+    background-color: var(--main-bg);
+    color: var(--text-primary);
+}
+
+/* Скрываем блок с видео в облегченном режиме */
+body.lightweight-mode .camera-grid.three-per-row {
+    display: none;
+}
+
+/* Скрываем панель управления в облегченном режиме */
+body.lightweight-mode .control-panel {
+    display: none;
+}
+
+/* Стили для информационного сообщения о скрытых камерах */
+.camera-placeholder {
+    display: none;
+}
+
+body.lightweight-mode .camera-placeholder {
+    display: block;
+    background: var(--camera-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 2rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+body.lightweight-mode .placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+body.lightweight-mode .placeholder-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+body.lightweight-mode .placeholder-text {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Упрощенный терминал */
+body.lightweight-mode .log-terminal {
+    background: var(--terminal-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+/* Упрощенные кнопки */
+body.lightweight-mode .control-btn {
+    background: var(--control-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+body.lightweight-mode .control-btn:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-secondary);
+}
+
+/* Упрощенные эффекты глитчей */
+body.lightweight-mode .glitch-text::before,
+body.lightweight-mode .glitch-text::after {
+    display: none;
+}
+
+/* Упрощенная анимация сканирования */
+@keyframes scanMove {
+    0% { top: -20%; }
+    100% { top: 120%; }
+}
+
+/* Упрощенные статусы */
+body.lightweight-mode .camera-status {
+    color: var(--success-color);
+    font-weight: 500;
+}
+
+body.lightweight-mode .camera-status.offline {
+    color: var(--danger-color);
+}
+
+/* Упрощенная навигация */
+body.lightweight-mode .scp-header nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+body.lightweight-mode .nav-mode-btn {
+    background: var(--accent-color);
+    border: 1px solid var(--accent-secondary);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+}
+
+body.lightweight-mode .nav-mode-btn:hover {
+    background: var(--accent-secondary);
+}
+
+/* Адаптивные стили для облегченного режима */
+@media (max-width: 768px) {
+    body.lightweight-mode .camera-placeholder {
+        padding: 1.5rem;
+        margin: 0.5rem 0;
+    }
+    
+    body.lightweight-mode .placeholder-icon {
+        font-size: 2.5rem;
+    }
+    
+    body.lightweight-mode .placeholder-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Добавляем в конец файла */
+@keyframes emergencyPulse {
+    0% { background-color: var(--main-bg); }
+    50% { background-color: rgba(255, 0, 0, 0.1); }
+    100% { background-color: var(--main-bg); }
+}
+
+.emergency-indicator {
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.7; }
+}

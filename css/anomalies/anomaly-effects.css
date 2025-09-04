@@ -1,0 +1,252 @@
+/* anomaly-effects.css */
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+/* Базовые анимации */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+    20%, 24%, 55% { opacity: 0.3; }
+}
+
+@keyframes textShadow {
+    0% { text-shadow: 0 0 0 rgba(255, 0, 0, 0.5); }
+    50% { text-shadow: 2px 2px 0 rgba(255, 0, 0, 0.7), -2px -2px 0 rgba(0, 255, 255, 0.7); }
+    100% { text-shadow: 0 0 0 rgba(255, 0, 0, 0.5); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+    20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+@keyframes scan {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+
+@keyframes cursorPulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.3; }
+}
+
+@keyframes reality-tremor {
+    0%, 100% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(-1px, 1px) rotate(-0.2deg); }
+    50% { transform: translate(1px, -1px) rotate(0.2deg); }
+    75% { transform: translate(-1px, -1px) rotate(0.1deg); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes madnessParticle {
+    0% { transform: translate(0, 0) scale(0); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(1); opacity: 0; }
+}
+
+/* Классы эффектов */
+.glitch-effect { animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) infinite; }
+.flicker-effect { animation: flicker 3s linear infinite; }
+.text-shadow-effect { animation: textShadow 5s ease-in-out infinite; }
+.shake-effect { animation: shake 0.5s ease-in-out infinite; }
+.reality-tremor { animation: reality-tremor 0.1s infinite; }
+
+/* Zalgo текст */
+.zalgo-active { font-family: 'Courier New', 'Special Elite', monospace; }
+.zalgo-corrupted { position: relative; letter-spacing: -0.5px; }
+
+/* Глобальная сканирующая линия */
+.global-scan-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to bottom, 
+        rgba(0, 255, 0, 0.1), 
+        rgba(0, 255, 0, 0.4), 
+        rgba(0, 255, 0, 0.1));
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+    z-index: 9999;
+    pointer-events: none;
+    animation: scan 4s linear infinite;
+}
+
+/* Искажение курсора */
+.cursor-distortion { cursor: none; }
+.cursor-distortion::after {
+    content: "";
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 0, 0, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    animation: cursorPulse 1s infinite alternate;
+}
+
+/* Скрытые сообщения */
+.hidden-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0;
+    transition: opacity 1s;
+    color: #ff0000;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border: 1px solid #ff0000;
+    pointer-events: none;
+}
+
+/* Эффект нарушения содержания */
+.containment-breach-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 0, 0, 0.3);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+    color: #fff;
+}
+
+.breach-message {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border: 3px solid #ff0000;
+    animation: glitch 0.5s infinite;
+}
+
+.breach-message h2 {
+    color: #ff0000;
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+/* Частицы безумия */
+.madness-particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: #ff0000;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    animation: madnessParticle 2s ease-out forwards;
+}
+
+.madness-particle::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    animation: inherit;
+    animation-delay: 0.3s;
+}
+
+/* Стили для ARG элементов */
+.hidden-arg-code {
+    position: absolute;
+    opacity: 0.001;
+    pointer-events: none;
+    z-index: -1000;
+}
+
+/* Эффект сдвига реальности */
+.reality-shift {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.reality-shift > * {
+    transition: transform 0.5s ease;
+}
+
+.reality-shift:hover > * {
+    transform: rotateX(2deg) rotateY(-2deg) translateZ(20px);
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .global-scan-line { height: 1px; }
+    .hidden-message { font-size: 10px; right: 10px; bottom: 10px; }
+    .breach-message { padding: 15px; font-size: 0.8em; }
+}
+
+/* В конец файла, после последнего существующего правила */
+
+/* Базовые стили для эффектов безумия */
+body {
+    transition: all 0.3s ease;
+    overflow-x: hidden;
+}
+
+/* Улучшенные стили для текста с эффектом Zalgo */
+.zalgo-text {
+    font-feature-settings: "salt" 1;
+    letter-spacing: -0.02em;
+}
+
+/* Специальные стили для системных сообщений */
+.terminal-content .system-alert {
+    color: #ff4444;
+    animation: flicker 2s infinite;
+}
+
+/* Стили для интерактивных ARG элементов */
+[data-arg-trigger] {
+    cursor: pointer;
+    position: relative;
+}
+
+[data-arg-trigger]:hover::after {
+    content: "???";
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    font-size: 0.8em;
+    color: #ff0000;
+    opacity: 0.7;
+}
+
+/* Скрытые элементы для будущих ARG взаимодействий */
+.arg-hidden {
+    display: none;
+}
+
+.arg-visible {
+    display: block;
+    animation: glitch 0.5s infinite;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    border: 1px solid #00ff00;
+    position: fixed;
+    z-index: 10000;
+}

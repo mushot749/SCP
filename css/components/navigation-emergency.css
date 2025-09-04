@@ -1,0 +1,113 @@
+/* Стили для кнопки аварийного режима в навигации */
+.nav-emergency-btn {
+    background: linear-gradient(45deg, #ff0000, #ff4040);
+    border: 1px solid #ff0000;
+    color: #000 !important;
+    padding: 8px 12px;
+    border-radius: 3px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    animation: navEmergencyPulse 3s infinite;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.nav-emergency-btn:hover {
+    background: linear-gradient(45deg, #ff4040, #ff0000);
+    animation: navEmergencyPulseFast 1s infinite;
+    transform: translateY(-1px);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+.nav-emergency-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+@keyframes navEmergencyPulse {
+    0%, 100% { 
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        opacity: 0.8;
+    }
+    50% { 
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+        opacity: 1;
+    }
+}
+
+@keyframes navEmergencyPulseFast {
+    0%, 100% { 
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+    }
+    50% { 
+        box-shadow: 0 0 15px rgba(255, 0, 0, 1);
+    }
+}
+
+/* Стили для активного аварийного режима */
+.nav-emergency-btn.active {
+    background: linear-gradient(45deg, #00ff00, #00cc00);
+    border: 1px solid #00ff00;
+    animation: navEmergencyActive 2s infinite;
+}
+
+@keyframes navEmergencyActive {
+    0%, 100% { 
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    }
+    50% { 
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    }
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .nav-emergency-btn {
+        font-size: 10px;
+        padding: 6px 8px;
+        margin-left: 5px;
+    }
+}
+
+/* Стили для навигационного списка с кнопкой */
+.scp-header nav ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.scp-header nav li {
+    margin: 0 5px;
+}
+
+/* Стили для кнопки переключения режимов */
+.nav-mode-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.nav-mode-btn:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Адаптивность для навигации */
+@media (max-width: 768px) {
+    .nav-mode-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+    }
+}
