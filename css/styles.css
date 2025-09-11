@@ -369,11 +369,11 @@ body {
 
 @font-face {
     font-family: 'VCR OSD Mono';
-    src: url('/font/VCROSDMonoRUSVHSicons.eot');
-    src: url('/font/VCROSDMonoRUSVHSicons.eot?#iefix') format('embedded-opentype'),
-        url('/font/VCROSDMonoRUSVHSicons.woff2') format('woff2'),
-        url('/font/VCROSDMonoRUSVHSicons.woff') format('woff'),
-        url('/font/VCROSDMonoRUSVHSicons.ttf') format('truetype');
+    src: url('./font/VCROSDMonoRUSVHSicons.eot');
+    src: url('./font/VCROSDMonoRUSVHSicons.eot?#iefix') format('embedded-opentype'),
+        url('./font/VCROSDMonoRUSVHSicons.woff2') format('woff2'),
+        url('./font/VCROSDMonoRUSVHSicons.woff') format('woff'),
+        url('./font/VCROSDMonoRUSVHSicons.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
