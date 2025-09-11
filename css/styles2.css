@@ -1,21 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 @font-face {
-    font-family: 'VCR OSD Mono';
-    src: url('/font/VCROSDMonoRUSVHSicons.eot');
-    src: url('/font/VCROSDMonoRUSVHSicons.eot?#iefix') format('embedded-opentype'),
-        url('/font/VCROSDMonoRUSVHSicons.woff2') format('woff2'),
-        url('/font/VCROSDMonoRUSVHSicons.woff') format('woff'),
-        url('/font/VCROSDMonoRUSVHSicons.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
     font-family: 'SK Pencil';
-    src: url('/font/SKPencil-Regular.woff2') format('woff2'),
-        url('/font/SKPencil-Regular.woff') format('woff');
+    src: url('./font/SKPencil-Regular.woff2') format('woff2'),
+        url('./font/SKPencil-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -23,8 +11,8 @@
 
 @font-face {
     font-family: 'EFN Zepsuta Maszyna';
-    src: url('/font/EFNZepsutaMaszyna.woff2') format('woff2'),
-        url('/font/EFNZepsutaMaszyna.woff') format('woff');
+    src: url('./font/EFNZepsutaMaszyna.woff2') format('woff2'),
+        url('./font/EFNZepsutaMaszyna.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -32,8 +20,8 @@
 
 @font-face {
     font-family: 'Tataric';
-    src: url('/font/Tataric.woff2') format('woff2'),
-        url('/font/Tataric.woff') format('woff');
+    src: url('./font/Tataric.woff2') format('woff2'),
+        url('./font/Tataric.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -649,4 +637,5 @@ h2:hover::after, h3:hover::after, .main-title:hover::after {
         margin: 15px 0 10px 5%;
         font-size: 14px;
     }
+
 }
