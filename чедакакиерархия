@@ -1,49 +1,5 @@
 project/
 ├── index.html                 # Основной HTML файл
 ├── script.js                 # Главный файл-инициатор приложения
-├── modules/                  # Директория с модулями
-│   ├── anomaly-core.js       # Основной модуль аномалий
-│   ├── anomaly-triggers.js   # Триггеры и обработчики аномалий
-│   ├── camera-handlers.js    # Обработчики событий камер
-│   ├── constants.js          # Константы и настройки системы
-│   ├── state.js              # Управление глобальным состоянием
-│   ├── system-handlers.js    # Обработчики системных событий
-│   ├── utils.js              # Вспомогательные утилиты
-│   ├── glitch-effects.js     # Эффекты глитчей и анимации
-│   ├── video-manager.js      # Управление видео потоками
-│   ├── navigation.js         # Навигация и управление доступом
-│   ├── event-handlers.js     # Главный координатор обработчиков событий
-│   ├── init.js               # Инициализация системы
-│   ├── zalgo-effect.js       # Эффект искажения текста Zalgo
-│   ├── emergency-mode.js     # Аварийный режим
-│   └── emergency-performance-mode.js # Объединенный менеджер режимов
 ├── css/
 │    ├── style.css              # Главный файл, импортирующий все модули
-│    ├── base/                 # Базовые стили и сбросы
-│    │   ├── reset.css         # Сброс стилей и базовые правила
-│    │   └── variables.css     # CSS-переменные и цветовая схема
-│    ├── layout/               # Макет и структура страницы  
-│    │   ├── header.css        # Стили шапки
-│    │   ├── footer.css        # Стили подвала
-│    │   └── grid.css          # Система сеток
-│    ├── components/           # Компоненты интерфейса
-│    │   ├── alerts.css        # Система оповещений
-│    │   ├── buttons.css       # Кнопки и элементы управления
-│    │   ├── camera-feeds.css  # Стили камер наблюдения
-│    │   ├── data-fields.css   # Поля данных
-│    │   ├── terminal.css      # Терминал и консоль
-│    │   └── navigation-emergency.css # Навигация в аварийном режиме
-│    ├── animations/           # Анимации и эффекты
-│    │   ├── keyframes.css     # Кейфреймы анимаций
-│    │   └── glitch-effects.css # Глитч-эффекты
-│    ├── utilities/            # Вспомогательные стили
-│    │   ├── typography.css    # Типографика
-│    │   └── responsive.css    # Адаптивные стили
-│    ├── modes/                # Специальные режимы
-│    │   └── lightweight-mode.css # Облегченный режим
-│    └── anomalies/            # Эффекты аномалий
-│       ├── zalgo-effects.css # Эффекты Zalgo текста
-│       ├── corruption.css    # Эффекты коррупции и искажения
-│       ├── emergency-mode.css   # Аварийный режим
-│       ├── reality-glitch.css # Глитчи реальности
-│       └── anomaly-effects.css # Основные эффекты аномалий
