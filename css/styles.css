@@ -2,11 +2,11 @@
 
 @font-face {
     font-family: 'VCR OSD Mono';
-    src: url('./fonts/VCROSDMonoRUSVHSicons.eot');
-    src: url('./fonts/VCROSDMonoRUSVHSicons.eot?#iefix') format('embedded-opentype'),
-        url('./fonts/VCROSDMonoRUSVHSicons.woff2') format('woff2'),
-        url('./fonts/VCROSDMonoRUSVHSicons.woff') format('woff'),
-        url('./fonts/VCROSDMonoRUSVHSicons.ttf') format('truetype');
+    src: url('../fonts/VCROSDMonoRUSVHSicons.eot');
+    src: url('../fonts/VCROSDMonoRUSVHSicons.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/VCROSDMonoRUSVHSicons.woff2') format('woff2'),
+        url('../fonts/VCROSDMonoRUSVHSicons.woff') format('woff'),
+        url('../fonts/VCROSDMonoRUSVHSicons.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
