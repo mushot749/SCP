@@ -25,104 +25,115 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Функция для аномального поведения шрифта Tataric
+    // Функция для аномального поведения шрифта Tataric внутри параграфов
     function setupTataricAnomaly() {
         const diaryContent = document.querySelector('.diary-content');
         if (!diaryContent) return;
 
-        // Элементы, к которым будет применяться аномалия
-        const dateElements = diaryContent.querySelectorAll('span[class^="date-"]');
-        if (dateElements.length === 0) return;
+        // Получаем все параграфы внутри diary-content
+        const paragraphs = diaryContent.querySelectorAll('p');
+        if (paragraphs.length === 0) return;
 
-        // Функция для случайного применения шрифта Tataric
+        // Функция для применения аномалии к случайным частям текста
         function applyTataricAnomaly() {
-            // Случайный шанс 20% для активации аномалии
-            if (Math.random() < 0.2) {
-                // Выбираем случайный элемент
-                const randomElement = dateElements[Math.floor(Math.random() * dateElements.length)];
-                
-                // Сохраняем оригинальные стили
-                const originalStyles = {
-                    fontFamily: randomElement.style.fontFamily,
-                    textTransform: randomElement.style.textTransform,
-                    color: randomElement.style.color,
-                    textShadow: randomElement.style.textShadow,
-                    fontWeight: randomElement.style.fontWeight
-                };
-
-                // Применяем Tataric шрифт с аномальными эффектами
-                randomElement.style.fontFamily = 'Tataric, serif';
-                randomElement.style.textTransform = 'uppercase';
-                randomElement.style.color = '#8B0000';
-                randomElement.style.textShadow = '0 0 8px rgba(139, 0, 0, 0.6)';
-                randomElement.style.fontWeight = 'bold';
-                randomElement.style.letterSpacing = '2px';
-                
-                // Добавляем класс для визуальных эффектов
-                randomElement.classList.add('anomaly-active');
-
-                // Создаем эффект мерцания
-                let flickerCount = 0;
-                const flickerInterval = setInterval(() => {
-                    if (flickerCount < 5) {
-                        randomElement.style.opacity = Math.random() > 0.5 ? '1' : '0.7';
-                        flickerCount++;
-                    } else {
-                        clearInterval(flickerInterval);
-                        randomElement.style.opacity = '1';
+            paragraphs.forEach(paragraph => {
+                // 30% шанс что параграф будет затронут аномалией
+                if (Math.random() < 0.3) {
+                    const text = paragraph.textContent;
+                    const words = text.split(' ');
+                    
+                    // Выбираем случайные слова для изменения (1-3 слова)
+                    const wordsToChange = Math.floor(Math.random() * 3) + 1;
+                    const changedIndices = new Set();
+                    
+                    while (changedIndices.size < wordsToChange && changedIndices.size < words.length) {
+                        changedIndices.add(Math.floor(Math.random() * words.length));
                     }
-                }, 100);
-
-                // Восстанавливаем через случайное время
-                setTimeout(() => {
-                    // Плавное восстановление
-                    randomElement.style.transition = 'all 1s ease';
-                    randomElement.style.fontFamily = originalStyles.fontFamily || '';
-                    randomElement.style.textTransform = originalStyles.textTransform || '';
-                    randomElement.style.color = originalStyles.color || '';
-                    randomElement.style.textShadow = originalStyles.textShadow || '';
-                    randomElement.style.fontWeight = originalStyles.fontWeight || '';
-                    randomElement.style.letterSpacing = '';
-                    randomElement.classList.remove('anomaly-active');
-
-                    // Убираем transition после восстановления
+                    
+                    // Создаем новый HTML с измененными словами
+                    let newHTML = '';
+                    words.forEach((word, index) => {
+                        if (changedIndices.has(index)) {
+                            newHTML += `<span class="tataric-anomaly" style="
+                                font-family: 'Tataric', serif;
+                                color: #8B0000;
+                                text-shadow: 0 0 5px rgba(139, 0, 0, 0.4);
+                                font-weight: bold;
+                                letter-spacing: 1px;
+                                transition: all 0.5s ease;
+                            ">${word}</span> `;
+                        } else {
+                            newHTML += word + ' ';
+                        }
+                    });
+                    
+                    paragraph.innerHTML = newHTML;
+                    
+                    // Автоматическое восстановление через случайное время
                     setTimeout(() => {
-                        randomElement.style.transition = '';
-                    }, 1000);
-                }, Math.random() * 4000 + 2000); // 2-6 секунд
-            }
+                        paragraph.textContent = text;
+                    }, Math.random() * 5000 + 2000); // 2-7 секунд
+                }
+            });
+        }
+
+        // Функция для аномалии при наведении
+        function setupHoverAnomaly() {
+            paragraphs.forEach(paragraph => {
+                paragraph.addEventListener('mouseover', function(e) {
+                    if (e.target.tagName === 'SPAN' && e.target.classList.contains('tataric-anomaly')) return;
+                    
+                    // 20% шанс при наведении
+                    if (Math.random() < 0.2) {
+                        const rect = paragraph.getBoundingClientRect();
+                        const mouseX = e.clientX - rect.left;
+                        const mouseY = e.clientY - rect.top;
+                        
+                        // Находим ближайшее слово к курсору
+                        const text = paragraph.textContent;
+                        const words = text.split(' ');
+                        const charPosition = Math.floor((mouseX / rect.width) * text.length);
+                        
+                        let currentPos = 0;
+                        let targetWordIndex = -1;
+                        
+                        for (let i = 0; i < words.length; i++) {
+                            currentPos += words[i].length + 1;
+                            if (currentPos > charPosition) {
+                                targetWordIndex = i;
+                                break;
+                            }
+                        }
+                        
+                        if (targetWordIndex !== -1) {
+                            const newWords = [...words];
+                            newWords[targetWordIndex] = `<span class="tataric-anomaly" style="
+                                font-family: 'Tataric', serif;
+                                color: #8B0000;
+                                text-shadow: 0 0 5px rgba(139, 0, 0, 0.4);
+                                font-weight: bold;
+                                letter-spacing: 1px;
+                            ">${words[targetWordIndex]}</span>`;
+                            
+                            paragraph.innerHTML = newWords.join(' ');
+                            
+                            // Восстановление через 2 секунды
+                            setTimeout(() => {
+                                paragraph.textContent = text;
+                            }, 2000);
+                        }
+                    }
+                });
+            });
         }
 
         // Запускаем аномалию периодически
-        setInterval(applyTataricAnomaly, 8000); // Каждые 8 секунд
-
-        // Также запускаем при наведении на элементы
-        dateElements.forEach(element => {
-            element.addEventListener('mouseenter', function() {
-                // 30% шанс при наведении
-                if (Math.random() < 0.3 && !this.classList.contains('anomaly-active')) {
-                    const originalColor = this.style.color;
-                    
-                    this.style.fontFamily = 'Tataric, serif';
-                    this.style.textTransform = 'uppercase';
-                    this.style.color = '#8B0000';
-                    this.style.textShadow = '0 0 5px rgba(139, 0, 0, 0.4)';
-                    this.classList.add('anomaly-active');
-
-                    // Восстанавливаем при уходе мыши
-                    this.addEventListener('mouseleave', function restoreOnLeave() {
-                        this.style.fontFamily = '';
-                        this.style.textTransform = '';
-                        this.style.color = originalColor;
-                        this.style.textShadow = '';
-                        this.classList.remove('anomaly-active');
-                        this.removeEventListener('mouseleave', restoreOnLeave);
-                    }, { once: true });
-                }
-            });
-        });
-
-        // Аномалия при загрузке страницы
+        setInterval(applyTataricAnomaly, 10000); // Каждые 10 секунд
+        
+        // Настраиваем аномалию при наведении
+        setupHoverAnomaly();
+        
+        // Первая аномалия при загрузке
         setTimeout(applyTataricAnomaly, 3000);
     }
 
