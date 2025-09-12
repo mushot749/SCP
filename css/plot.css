@@ -326,21 +326,23 @@ body {
 .diary-entry {
     margin: 30px 0;
     padding: 30px;
-    background: #f8f4e8;
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), /* Полупрозрачный белый слой - 70% непрозрачности */
+        url('../images/paper.jpg') repeat,
+        radial-gradient(circle at 20% 30%, rgba(214, 201, 165, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 80% 70%, rgba(214, 201, 165, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 40% 90%, rgba(214, 201, 165, 0.08) 1px, transparent 1px),
+        #f8f4e8;
+    background-blend-mode: normal, multiply, multiply, multiply, multiply;
+    background-size: auto, auto, 300px 300px, 200px 200px, 150px 150px;
     border-radius: 3px;
     border: 1px solid #d6c9a5;
     position: relative;
     box-shadow:
         0 2px 5px rgba(0, 0, 0, 0.1),
         0 0 30px rgba(0, 0, 0, 0.05) inset;
-    background-image:
-        radial-gradient(circle at 20% 30%, rgba(214, 201, 165, 0.1) 1px, transparent 1px),
-        radial-gradient(circle at 80% 70%, rgba(214, 201, 165, 0.1) 1px, transparent 1px),
-        radial-gradient(circle at 40% 90%, rgba(214, 201, 165, 0.08) 1px, transparent 1px);
-    background-size: 300px 300px, 200px 200px, 150px 150px;
     transform: rotate(0.2deg);
     transition: transform 0.3s ease;
-    /* Добавляем обрезку для маски */
     overflow: hidden;
 }
 
@@ -570,8 +572,10 @@ p {
     font-size: 22px;
     color: #2c2416;
     opacity: 0.9;
-        transition: all 0.5s ease; /* Плавный переход для аномалии */
-    cursor: pointer; /* Указываем, что элемент интерактивный */
+    transition: all 0.5s ease;
+    /* Плавный переход для аномалии */
+    cursor: pointer;
+    /* Указываем, что элемент интерактивный */
 }
 
 /* Шрифт для date-one, date-two, date-three */
@@ -604,16 +608,27 @@ p {
 }
 
 @keyframes anomalyPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.7; }
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
 }
 
 /* Дополнительные glitch эффекты */
-h2:hover, h3:hover, .main-title:hover {
+h2:hover,
+h3:hover,
+.main-title:hover {
     transition: all 0.3s ease;
 }
 
-h2:hover::after, h3:hover::after, .main-title:hover::after {
+h2:hover::after,
+h3:hover::after,
+.main-title:hover::after {
     content: '█';
     color: var(--effect-color);
     margin-left: 2px;
@@ -621,8 +636,15 @@ h2:hover::after, h3:hover::after, .main-title:hover::after {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 @media (max-width: 768px) {
