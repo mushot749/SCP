@@ -1,27 +1,19 @@
-// script.js
 document.addEventListener('DOMContentLoaded', function() {
     // Функция для обработки кликов по кнопкам спойлеров
     function setupSpoilerButtons() {
-        // Находим все кнопки с классом spoiler-toggle
         const spoilerButtons = document.querySelectorAll('.spoiler-toggle');
         
-        // Добавляем обработчик для каждой кнопки
         spoilerButtons.forEach(button => {
             button.addEventListener('click', function() {
-                // Находим следующий элемент с классом spoiler-content
                 const spoilerContent = this.nextElementSibling;
                 
-                // Проверяем, является ли следующий элемент спойлером
                 if (spoilerContent && spoilerContent.classList.contains('spoiler-content')) {
-                    // Переключаем видимость спойлера
                     const isHidden = spoilerContent.hidden;
                     spoilerContent.hidden = !isHidden;
                     
-                    // Обновляем текст кнопки
                     if (isHidden) {
                         this.querySelector('span').textContent = 'ЗАБЛОКИРОВАТЬ ДОСТУП';
                     } else {
-                        // Восстанавливаем оригинальный текст в зависимости от класса кнопки
                         if (this.classList.contains('main-spoiler')) {
                             this.querySelector('span').textContent = 'РАЗБЛОКИРОВАТЬ ДОСТУП К ОТЧЁТУ 001-Ω';
                         } else {
@@ -42,14 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const dateElements = diaryContent.querySelectorAll('span[class^="date-"]');
         if (dateElements.length === 0) return;
 
-        // Переменная для отслеживания активности аномалии
-        let anomalyActive = false;
-        
         // Функция для случайного применения шрифта Tataric
         function applyTataricAnomaly() {
-            if (anomalyActive) return;
-            anomalyActive = true;
-
             // Случайный шанс 20% для активации аномалии
             if (Math.random() < 0.2) {
                 // Выбираем случайный элемент
@@ -102,11 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Убираем transition после восстановления
                     setTimeout(() => {
                         randomElement.style.transition = '';
-                        anomalyActive = false;
                     }, 1000);
                 }, Math.random() * 4000 + 2000); // 2-6 секунд
-            } else {
-                anomalyActive = false;
             }
         }
 
