@@ -2,8 +2,8 @@
 
 @font-face {
     font-family: 'SK Pencil';
-    src: url('./font/SKPencil-Regular.woff2') format('woff2'),
-        url('./font/SKPencil-Regular.woff') format('woff');
+    src: url('./fonts/SKPencil-Regular.woff2') format('woff2'),
+        url('./fonts/SKPencil-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -11,8 +11,8 @@
 
 @font-face {
     font-family: 'EFN Zepsuta Maszyna';
-    src: url('./font/EFNZepsutaMaszyna.woff2') format('woff2'),
-        url('./font/EFNZepsutaMaszyna.woff') format('woff');
+    src: url('./fonts/EFNZepsutaMaszyna.woff2') format('woff2'),
+        url('./fonts/EFNZepsutaMaszyna.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -20,8 +20,8 @@
 
 @font-face {
     font-family: 'Tataric';
-    src: url('./font/Tataric.woff2') format('woff2'),
-        url('./font/Tataric.woff') format('woff');
+    src: url('./fonts/Tataric.woff2') format('woff2'),
+        url('./fonts/Tataric.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
