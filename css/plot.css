@@ -113,6 +113,34 @@ body {
     opacity: 0.8;
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    border: 1px solid var(--effect-color);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 0.7;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+    background-color: var(--effect-color);
+}
+
 /* ===== MAIN LAYOUT ===== */
 .scp-main {
     flex: 1;
