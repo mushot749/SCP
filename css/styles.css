@@ -97,6 +97,34 @@ body {
     opacity: 0.8;
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    border: 1px solid var(--effect-color);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 0.7;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+    background-color: var(--effect-color);
+}
+
 /* ===== MAIN LAYOUT ===== */
 .scp-main {
     flex: 1;
@@ -551,9 +579,67 @@ body {
     text-transform: uppercase;
 }
 
+
+.plot-description p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: justify;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plot-description {
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--accent-color);
+    margin: 30px 0;
+}
+
+.plot-container {
+    margin: 40px 0;
+    position: relative;
+}
+
+/* Улучшение контраста для лучшей читаемости */
+.plot-description p {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .plot-description p {
+        font-size: 15px;
+        line-height: 1.7;
+        text-align: left;
+        padding: 0 10px;
+    }
+    
+    .plot-description {
+        padding: 20px 15px;
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .plot-description p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    .plot-container {
+        margin: 30px 0;
+    }
+}
+
 .plot-container {
     margin: 25px 0;
 }
+
+
 
 .plot-description p {
     margin-bottom: 15px;
@@ -820,3 +906,4 @@ body {
         gap: 10px;
     }
 }
+
