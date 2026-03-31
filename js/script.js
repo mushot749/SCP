@@ -57,12 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let systemUptime = 0;
     let timeInterval, uptimeInterval;
 
-    // === Mobile detection ===
+    // === Mobile/tablet detection (threshold 1024px) ===
     function detectMobile() {
         const userAgent = navigator.userAgent.toLowerCase();
         const mobileKeywords = ['android', 'webos', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone'];
         const isMobileUA = mobileKeywords.some(keyword => userAgent.includes(keyword));
-        const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+        // Ширина 1024px покрывает большинство планшетов
+        const isSmallScreen = window.matchMedia('(max-width: 1024px)').matches;
         return isMobileUA || isSmallScreen;
     }
 
