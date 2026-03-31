@@ -790,7 +790,8 @@ body {
     }
 }
 
-@media (max-width: 1024px) {
+/* Полное скрытие security-system на мобильных */
+@media (max-width: 768px) {
     .security-system {
         display: none;
     }
