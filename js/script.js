@@ -56,37 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let isColorMode = true;
     let systemUptime = 0;
 
-    // Функция для улучшения читаемости текста сюжета
+    // Функция улучшения читаемости сюжета (убрана лишняя стилизация)
     function enhancePlotReadability() {
-        const plotContainer = document.querySelector('.plot-container');
-        if (plotContainer) {
-            // Добавляем класс для улучшенной читаемости
-            plotContainer.classList.add('enhanced-readability');
-            
-            // Разбиваем текст на более удобные для чтения абзацы
-            const paragraphs = plotContainer.querySelectorAll('.plot-description p');
-            paragraphs.forEach(p => {
-                p.style.fontSize = '16px';
-                p.style.lineHeight = '1.8';
-                p.style.color = '#2F4F4F';
-                p.style.marginBottom = '20px';
-                p.style.textAlign = 'justify';
-                p.style.maxWidth = '900px';
-                p.style.marginLeft = 'auto';
-                p.style.marginRight = 'auto';
-                p.style.textShadow = '0 1px 2px rgba(0, 0, 0, 0.1)';
-            });
-            
-            // Добавляем стили для контейнера
-            const plotDescription = plotContainer.querySelector('.plot-description');
-            if (plotDescription) {
-                plotDescription.style.padding = '25px';
-                plotDescription.style.background = 'rgba(245, 245, 245, 0.1)';
-                plotDescription.style.borderRadius = '4px';
-                plotDescription.style.borderLeft = '4px solid #708090';
-                plotDescription.style.margin = '30px 0';
-            }
-        }
+        // Ничего не делаем – стили уже заданы в CSS
+        // Можно оставить пустую функцию, чтобы не было ошибок
     }
 
     // Initialize and setup SCP monitoring system
@@ -145,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setupReducedMotionEffects();
         }
 
-        // Улучшаем читаемость текста сюжета
+        // Улучшаем читаемость текста сюжета (теперь без инлайн-стилей)
         enhancePlotReadability();
 
         // Log initialization
