@@ -55,21 +55,50 @@ document.addEventListener("DOMContentLoaded", () => {
     let gridState = "three-per-row";
     let isColorMode = true;
     let systemUptime = 0;
+    let timeInterval, uptimeInterval;
 
-    // Функция улучшения читаемости сюжета (убрана лишняя стилизация)
-    function enhancePlotReadability() {
-        // Ничего не делаем – стили уже заданы в CSS
-        // Можно оставить пустую функцию, чтобы не было ошибок
+    // === Mobile detection ===
+    function detectMobile() {
+        const userAgent = navigator.userAgent.toLowerCase();
+        const mobileKeywords = ['android', 'webos', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone'];
+        const isMobileUA = mobileKeywords.some(keyword => userAgent.includes(keyword));
+        const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+        return isMobileUA || isSmallScreen;
     }
+
+    // Функция улучшения читаемости сюжета (пустая, чтобы не мешать CSS)
+    function enhancePlotReadability() {}
 
     // Initialize and setup SCP monitoring system
     function initializeSystem() {
+        const isMobile = detectMobile();
+
+        if (isMobile) {
+            // --- МОБИЛЬНЫЙ РЕЖИМ: полностью отключаем тяжёлую функциональность ---
+            // Очищаем src у видео, чтобы не было сетевых запросов
+            videoElements.forEach(video => {
+                video.removeAttribute('src');
+                video.load(); // сбросить загрузку
+            });
+            // Останавливаем любые потенциальные таймеры (если вдруг запущены)
+            if (timeInterval) clearInterval(timeInterval);
+            if (uptimeInterval) clearInterval(uptimeInterval);
+            // Отключаем кнопки управления
+            if (toggleGridBtn) toggleGridBtn.disabled = true;
+            if (resetSystemBtn) resetSystemBtn.disabled = true;
+            if (triggerGlitchBtn) triggerGlitchBtn.disabled = true;
+            if (toggleFilterBtn) toggleFilterBtn.disabled = true;
+            // Очищаем журнал, чтобы он не обновлялся
+            if (logContent) logContent.innerHTML = '';
+            // Блок .security-system будет скрыт CSS, больше ничего не делаем
+            return;
+        }
+
+        // --- ДЕСКТОПНЫЙ РЕЖИМ: полная функциональность ---
         // Set current time
         updateTime();
-        setInterval(updateTime, 1000);
-        
-        // Update uptime
-        setInterval(updateUptime, 1000);
+        timeInterval = setInterval(updateTime, 1000);
+        uptimeInterval = setInterval(updateUptime, 1000);
 
         // Randomize scan line speeds
         randomizeScanLines();
