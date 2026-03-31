@@ -57,13 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
     let systemUptime = 0;
     let timeInterval, uptimeInterval;
 
-    // === Mobile detection ===
-    function detectMobile() {
+    // === Определение планшетов и мобильных устройств по user-agent ===
+    function isTabletOrMobile() {
         const userAgent = navigator.userAgent.toLowerCase();
-        const mobileKeywords = ['android', 'webos', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone'];
-        const isMobileUA = mobileKeywords.some(keyword => userAgent.includes(keyword));
-        const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
-        return isMobileUA || isSmallScreen;
+        // Ключевые слова для планшетов и телефонов
+        const mobileKeywords = [
+            'android', 'webos', 'iphone', 'ipad', 'ipod', 'blackberry',
+            'windows phone', 'tablet', 'kindle', 'silk'
+        ];
+        return mobileKeywords.some(keyword => userAgent.includes(keyword));
     }
 
     // Функция улучшения читаемости сюжета (пустая, чтобы не мешать CSS)
@@ -71,10 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize and setup SCP monitoring system
     function initializeSystem() {
-        const isMobile = detectMobile();
+        const isMobileOrTablet = isTabletOrMobile();
 
-        if (isMobile) {
-            // --- МОБИЛЬНЫЙ РЕЖИМ: полностью отключаем тяжёлую функциональность ---
+        if (isMobileOrTablet) {
+            // Добавляем класс на body для скрытия блока в CSS
+            document.body.classList.add('tablet-mode');
+
+            // --- ПОЛНОЕ ОТКЛЮЧЕНИЕ ТЯЖЁЛОЙ ФУНКЦИОНАЛЬНОСТИ ---
             // Очищаем src у видео, чтобы не было сетевых запросов
             videoElements.forEach(video => {
                 video.removeAttribute('src');
@@ -90,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (toggleFilterBtn) toggleFilterBtn.disabled = true;
             // Очищаем журнал, чтобы он не обновлялся
             if (logContent) logContent.innerHTML = '';
-            // Блок .security-system будет скрыт CSS, больше ничего не делаем
+            // Блок .security-system будет скрыт через CSS, больше ничего не делаем
             return;
         }
 
