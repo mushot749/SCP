@@ -789,3 +789,9 @@ body {
         gap: 10px;
     }
 }
+
+@media (max-width: 768px) {
+    .security-system {
+        display: none;
+    }
+}
