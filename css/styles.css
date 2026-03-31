@@ -790,9 +790,7 @@ body {
     }
 }
 
-/* Полное скрытие security-system на мобильных */
-@media (max-width: 768px) {
-    .security-system {
-        display: none;
-    }
+/* Планшеты и мобильные устройства: скрываем систему мониторинга */
+.tablet-mode .security-system {
+    display: none;
 }
